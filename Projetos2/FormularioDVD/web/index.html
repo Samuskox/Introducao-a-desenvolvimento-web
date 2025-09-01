@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>DVD</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            .container {
+                text-align: center;
+                text-justify: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <form action="processaDadosDVD" method="POST">
+                <label for="campoNumero">Numero</label>
+                <input id="campoNumero" type="text" name="numero">
+                <br/>
+                <label for="campoTitulo">Titulo</label>
+                <input id="campoTitulo" type="text" name="titulo">
+                <br/>
+                <label for="campoAtor">Ator/Atriz Principal</label>
+                <input id="campoAtor" type="text" value="atorPrincipal">
+                <br/>
+                <label for="campoCoadjuvante">Ator/Atriz Coadjuvante</label>
+                <input id="campoCoadjuvante" type="text" name="atorCoadjuvante">
+                <br/>
+                <label for="campoDiretor">Diretor(a)</label>
+                <input id="campoDiretor" type="text" name="diretor">
+                <br/>
+                <label for="campoAno">Ano de lançamento</label>
+                <input id="campoAno" type="date" name="ano">
+                <br/>
+                <input type="submit" name="Enviar Dados">
+            </form>
+        </div>
+    </body>
+</html>

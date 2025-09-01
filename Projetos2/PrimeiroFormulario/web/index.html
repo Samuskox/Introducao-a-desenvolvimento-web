@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Meu primeiro Formulário</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            .container {
+                text-align: center;
+                text-justify: auto;
+            }
+        </style>
+    </head>
+    
+        
+    <body>
+
+        <div class="container">
+            <div class="align">
+                <form action="processaDadosCliente">
+                <label for="campoNome">Nome</label>
+                <input id="campoNome" type="text" size="20" name="nome">
+                <br/>
+                <label for="campoSobrenome">Sobrenome</label>
+                <input id="campoSobrenome" type="text" size="20" name="sobrenome">
+                <br/>
+                <label for="campoEmail">Email</label>
+                <input id="campoEmail" type="email" size="20" name="email">
+                <br/>
+                <label for="campoCPF">CPF</label>
+                <input id="campoCPF" type="number" name="cpf">
+                <br/>
+                <label for="campoData">Data de Nascimento</label>
+                <input id="campoData" type="date" size="20" name="data">
+                <br/>
+                <label >Sexo:</label>
+                <input type="Radio" name="sexo" value="M" checked="checked"/>Masculino 
+                <input type="Radio" name="sexo" value="F"/>Feminino
+                <br/>
+                <label for="campoLogradouro">Logradouro</label>
+                <input id="campoLogradouro" type="text" size="20" name="logradouro">
+                <br/>
+                <label for="campoNumero">Numero</label>
+                <input id="campoNumero" type="number" name="numero">
+                <br/>
+                <label for="campoComplemento">Complemento</label>
+                <input id="campoComplemento" type="text" size="20" name="Complemento">
+                <br/>
+                <label for="campoCidade">Cidade</label>
+                <input id="campoCidade" type="text" size="20" name="Cidade">
+                <br/>
+                <label for="campoEstado">Estado</label>
+                <select id="campoEstado">
+                    <option value="AC" name="estado">Acre</option>
+                    <option value="AL" name="estado">Alagoas</option>
+                    <option value="AP" name="estado">Amapá</option>
+                    <option value="AM" name="estado">Amazonas</option>
+                    <option value="BA" name="estado">Bahia</option>
+                    <option value="CE" name="estado">Ceará</option>
+                    <option value="DF" name="estado">Distrito Federal</option>
+                    <option value="ES" name="estado">Espírito Santo</option>
+                    <option value="GO" name="estado">Goiás</option>
+                    <option value="MA" name="estado">Maranhão</option>
+                    <option value="MT" name="estado">Mato Grosso</option>
+                    <option value="MS" name="estado">Mato Grosso do Sul</option>
+                    <option value="MG" name="estado">Minas Gerais</option>
+                    <option value="PA" name="estado">Pará</option>
+                    <option value="PB" name="estado">Paraíba</option>
+                    <option value="PR" name="estado">Paraná</option>
+                    <option value="PE" name="estado">Pernambuco</option>
+                    <option value="PI" name="estado">Piauí</option>
+                    <option value="RJ" name="estado">Rio de Janeiro</option>
+                    <option value="RN" name="estado">Rio Grande do Norte</option>
+                    <option value="RS" name="estado">Rio Grande do Sul</option>
+                    <option value="RO" name="estado">Rondônia</option>
+                    <option value="RR" name="estado">Roraima</option>
+                    <option value="SC" name="estado">Santa Catarina</option>
+                    <option value="SP" name="estado">São Paulo</option>
+                    <option value="SE" name="estado">Sergipe</option>
+                    <option value="TO" name="estado">Tocantins</option>
+                </select>
+
+                <br/>
+                <label for="campoCep">Cep</label>
+                <input id="campoCep" type="text" size="20" name="cep">
+                <br/>
+                <label>Tem Filhos?</label>
+                <input type="Radio" name="filhos" value="S"/>SIM
+                <input type="Radio" name="filhos" value="N" checked="checked"/>NAO
+                <br/>
+                <label>Observação:</label>
+                <br/>
+                <textarea id="id" name="obs" rows="10" cols="10"></textarea>
+                <br/>
+                <input type="submit" name="Enviar Dados">
+            </form>  
+            </div>
+              
+        </div>
+
+
+
+
+    </body>
+</html>
