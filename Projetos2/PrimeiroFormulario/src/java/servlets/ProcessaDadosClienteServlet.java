@@ -4,6 +4,8 @@
  */
 package servlets;
 
+import entidades.Cadastro;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -36,12 +38,33 @@ public class ProcessaDadosClienteServlet extends HttpServlet {
         String dataNasc = request.getParameter("data");
         String sexo = request.getParameter("sexo");
         String logradouro = request.getParameter("logradouro");
-        String numero = request.getParameter("numero");
+        int numero = Integer.parseInt(request.getParameter("numero"));
         String complemento = request.getParameter("complemento");
         String cidade = request.getParameter("cidade");
         String cep = request.getParameter("cep");
         String filhos = request.getParameter("filhos");
         String obs = request.getParameter("obs");
+        
+        Cadastro cadastro = new Cadastro();
+        
+        cadastro.setNome(nome);
+        cadastro.setSobrenome(sobrenome);
+        cadastro.setCPF(cpf);
+        cadastro.setData(dataNasc);
+        cadastro.setSexo(sexo);
+        cadastro.setLogradouro(logradouro);
+        cadastro.setNumero(numero);
+        cadastro.setComplemento(complemento);
+        cadastro.setCidade(cidade);
+        cadastro.setCEP(cep);
+        boolean temOuN = filhos.equalsIgnoreCase("S");
+        cadastro.setFilhos(temOuN);
+        cadastro.setObs(obs);
+        
+        request.setAttribute("CadastroObtido", cadastro);
+        
+        RequestDispatcher disp = request.getRequestDispatcher("formulario.jsp");
+        disp.forward(request, response);
         
         
         
@@ -66,7 +89,6 @@ public class ProcessaDadosClienteServlet extends HttpServlet {
             System.out.println("Não Filhos");
         }
         System.out.println("Observações: " + obs);
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
