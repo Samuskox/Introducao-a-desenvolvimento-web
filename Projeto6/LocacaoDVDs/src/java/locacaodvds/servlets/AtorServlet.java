@@ -14,12 +14,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import locacaodvds.dao.AtorDAO;
+import locacaodvds.entidades.Ator;
 
 /**
  *
  * @author Samuel
  */
-@WebServlet(name = "AtorServlet", urlPatterns = {"/AtorServlet"})
+@WebServlet(name = "AtorServlet", urlPatterns = {"/processaAtor"})
 public class AtorServlet extends HttpServlet {
 
     /**
@@ -47,65 +48,68 @@ public class AtorServlet extends HttpServlet {
             if ( acao.equals( "inserir" ) ) {
 
                 String nome = request.getParameter( "nome" );
-                int id = Integer.parseInt( 
-                        request.getParameter( "idEstado" ) );
+                String sobrenome = request.getParameter("sobrenome");
+                String dataEstreia = request.getParameter("data_estreia");
 
-                Estado e = new Estado();
-                e.setId( idEstado );
+                Ator ator = new Ator();
+                ator.setNome(nome);
+                ator.setSobrenome(sobrenome);
+                ator.setDataEstreia(dataEstreia);
 
-                Cidade c = new Cidade();
-                c.setNome( nome );
-                c.setEstado( e );
-
-                dao.salvar( c );
+                dao.salvar( ator );
 
                 disp = request.getRequestDispatcher(
-                        "/formularios/cidades/listagem.jsp" );
+                        "/Formulários/ator/listagem.jsp" );
 
             } else if ( acao.equals( "alterar" ) ) {
 
                 int id = Integer.parseInt(request.getParameter( "id" ));
+                
                 String nome = request.getParameter( "nome" );
-                int idEstado = Integer.parseInt( 
-                        request.getParameter( "idEstado" ) );
+                String sobrenome = request.getParameter("sobrenome");
+                String dataEstreia = request.getParameter("data_estreia");
+                
+               
+                Ator ator = new Ator();
+                ator.setId(id);
+                ator.setNome(nome);
+                ator.setSobrenome(sobrenome);
+                ator.setDataEstreia(dataEstreia);
 
-                Estado e = new Estado();
-                e.setId( idEstado );
-
-                Cidade c = new Cidade();
-                c.setId( id );
-                c.setNome( nome );
-                c.setEstado( e );
-
-                dao.atualizar( c );
+                dao.atualizar( ator );
 
                 disp = request.getRequestDispatcher(
-                        "/formularios/cidades/listagem.jsp" );
+                        "/Formulários/ator/listagem.jsp" );
 
             } else if ( acao.equals( "excluir" ) ) {
 
                 int id = Integer.parseInt(request.getParameter( "id" ));
 
-                Cidade c = new Cidade();
-                c.setId( id );
+                Ator ator = new Ator();
+                ator.setId( id );
 
-                dao.excluir( c );
+                dao.excluir( ator );
 
                 disp = request.getRequestDispatcher(
-                        "/formularios/cidades/listagem.jsp" );
+                        "/Formulários/ator/listagem.jsp" );
 
             } else {
                 
                 int id = Integer.parseInt(request.getParameter( "id" ));
-                Cidade c = dao.obterPorId( id );
-                request.setAttribute( "cidade", c );
+                Ator ator = dao.obterPorId( id );
+                request.setAttribute( "ator", ator );
+                
+                System.out.println("coiso aq  -> " + acao);
                 
                 if ( acao.equals( "prepararAlteracao" ) ) {
+                    
+                    System.out.println("oi cebola");
+                    
                     disp = request.getRequestDispatcher( 
-                            "/formularios/cidades/alterar.jsp" );
+                            "/Formulários/ator/alterar.jsp" );
                 } else if ( acao.equals( "prepararExclusao" ) ) {
                     disp = request.getRequestDispatcher( 
-                            "/formularios/cidades/excluir.jsp" );
+                            "/Formulários/ator/excluir.jsp" );
                 }
                 
             }
@@ -115,7 +119,7 @@ public class AtorServlet extends HttpServlet {
         } finally {
             if ( dao != null ) {
                 try {
-                    dao.fecharConexao();
+                    dao.closeConnection();
                 } catch ( SQLException exc ) {
                     exc.printStackTrace();
                 }

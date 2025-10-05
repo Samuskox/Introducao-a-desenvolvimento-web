@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import locacaodvds.entidades.Ator;
 /**
@@ -30,6 +31,7 @@ public class AtorDAO extends DAO<Ator>{
         stmt.setString( 1, obj.getNome() );
         stmt.setString( 2, obj.getSobrenome() );
         stmt.setString(3, obj.getDataEstreia());
+       
 
         stmt.executeUpdate();
         stmt.close();
