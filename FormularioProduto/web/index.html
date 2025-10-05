@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Produto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            .container {
+                text-align: center;
+                text-justify: auto;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="container">
+            <h1>Produtos da Empresa</h1>
+            <b>Cadastre aqui Produtos da Empresa</b>
+            <br>
+            <form action="ProcessaDadosProdutos" method="POST">
+                <label for="campoCodigoBarras">Código de Barras</label>
+                <input id="campoCodigoBarras" type="number" name="codigoBarras">
+                <br>
+                <label for="campoDescricao">Descrição</label>
+                <input id="campoDescricao" type="text" name="descricao">
+                <br>
+                <label for="campoKG">Unidade De Medida (KG)</label>
+                <input id="campoKG" type="number" name="medida">
+                <br>
+                <label for="campoQntEmbalagem">Quantidade por Embalagem</label>
+                <input id="campoQntEmbalagem" type="number" name="qntEmbalagem">
+                <br>
+                <label for="campoNomeFabricante">Nome do Fabricante</label>
+                <input id="campoNomeFabricante" type="text" name="nomeFabricante">
+                <br>
+                <input type="submit" name="Enviar Dados">
+            </form>
+        </div>
+    </body>
+</html>
