@@ -23,7 +23,7 @@ public class DVDsService {
         try {
             dao = new DVDsDAO();
             lista = dao.listarTodos();
-            //System.out.println("dvds -> "+ lista);
+            System.out.println("dvds -> "+ lista);
         } catch ( SQLException exc ) {
             exc.printStackTrace();
         } finally {

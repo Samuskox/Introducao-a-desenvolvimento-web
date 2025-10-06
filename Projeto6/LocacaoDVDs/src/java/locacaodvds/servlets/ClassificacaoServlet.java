@@ -79,13 +79,13 @@ public class ClassificacaoServlet extends HttpServlet {
                         "/Formulários/classificacaoetaria/listagem.jsp" );
 
             } else if ( acao.equals( "excluir" ) ) {
-                System.out.println("daj ldanjasdlkdsa");
+                //System.out.println("daj ldanjasdlkdsa");
                 int id = Integer.parseInt(request.getParameter( "id" ));
-                System.out.println("id -> "+ id);
+                //System.out.println("id -> "+ id);
 
                 ClassificacaoEtaria classificacaoEtaria = new ClassificacaoEtaria();
                 classificacaoEtaria.setId( id );
-                System.out.println("id ->" +id);
+                //System.out.println("id ->" +id);
 
                 dao.excluir( classificacaoEtaria );
 

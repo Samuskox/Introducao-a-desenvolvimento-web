@@ -152,17 +152,22 @@ public class DVDsDAO extends DAO<DVDs>{
             
             
             atorPrincipal.setId(resultSet.getInt("idAtorPrincipal"));
+            atorPrincipal.setNome( resultSet.getString("nomeAtorPrincipal"));
             dvd.setAtorPrincipal(atorPrincipal);
+            
             atorCoadjuvante.setId(resultSet.getInt("idAtorCoadjuvante"));
+            atorCoadjuvante.setNome( resultSet.getString("nomeAtorCoadjuvante"));
             dvd.setAtorCoadjuvante(atorCoadjuvante);
             
             dvd.setDataLancamento(resultSet.getString("dataLancamento"));
             dvd.setDuracaoMinutos(resultSet.getInt("duracao"));
             
             classificacao.setId(resultSet.getInt("idClassificacao"));
+            classificacao.setDescricao( resultSet.getString("descricaoClassificacao"));
             dvd.setClassificacaoEtaria(classificacao);
             
             genero.setId(resultSet.getInt("idGenero"));
+            genero.setDescricao( resultSet.getString("descricaoGenero"));
             dvd.setGenero(genero);
 
             lista.add(dvd);
