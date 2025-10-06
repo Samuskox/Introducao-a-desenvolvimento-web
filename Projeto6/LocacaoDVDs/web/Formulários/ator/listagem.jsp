@@ -1,5 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> -->
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
 <c:set var="prefixo" value="processaAtor?acao=preparar"/>
 <!DOCTYPE html>
@@ -11,20 +11,15 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="${cp}/css/estilos.css"/>
+          href="../../css/estilos.css"/>
   </head>
 
   <body>
 
+    <div class="main-content">
     <h1>Atores Cadastrados</h1>
 
-    <p>
-      <a href="${cp}/Formulários/ator/novo.jsp">
-        Novo Ator
-      </a>
-    </p>
-
-    <table class="tabelaListagem">
+    <table class="table">
       <thead>
         <tr>
           <th>Id</th>
@@ -64,12 +59,20 @@
     </table>
 
     <p>
-      <a href="${cp}/Formulários/ator/novo.jsp">
+      <a class="link" href="${cp}/Formulários/ator/novo.jsp">
         Novo Ator
       </a>
     </p>
 
-    <p><a href="${cp}/páginaInicial.html">Tela Principal</a></p>
+    </div>
+
+    <div class="sidebar right">
+            <a class="link" href="../../páginaInicial.html">Tela Principal</a>
+        </div>
+
+    <footer class="footer">
+      “Calote é vida.” — Pitágoras
+    </footer>
 
   </body>
 

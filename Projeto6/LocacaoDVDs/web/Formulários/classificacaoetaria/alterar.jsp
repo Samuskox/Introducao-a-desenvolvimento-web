@@ -10,10 +10,12 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="${cp}/css/estilos.css"/>
+          href="../../css/estilos.css"/>
   </head>
 
   <body>
+
+    <div class="main-content">
 
     <h1>Alterar classificacao Etária</h1>
 
@@ -22,7 +24,7 @@
       <input name="acao" type="hidden" value="alterar"/>
       <input name="id" type="hidden" value="${requestScope.classificacaoEtaria.id}"/>
 
-      <table>
+      <table class="table">
         <tr>
           <td class="alinharDireita">Descrição:</td>
           <td>
@@ -37,7 +39,7 @@
         
         <tr>
           <td>
-            <a href="${cp}/Formulários/classificacaoetaria/listagem.jsp">Voltar</a>
+            <a class="link" href="${cp}/Formulários/classificacaoetaria/listagem.jsp">Voltar</a>
           </td>
           <td class="alinharDireita">
             <input type="submit" value="Alterar"/>
@@ -46,6 +48,12 @@
       </table>
 
     </form>
+
+    </div>
+
+    <footer class="footer">
+      “Calote é vida.” — Pitágoras
+    </footer>
 
   </body>
 

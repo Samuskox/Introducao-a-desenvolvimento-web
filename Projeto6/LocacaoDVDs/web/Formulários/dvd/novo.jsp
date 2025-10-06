@@ -10,10 +10,12 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="${cp}/css/estilos.css"/>
+          href="../../css/estilos.css"/>
   </head>
 
   <body>
+
+    <div class="main-content">
 
     <h1>Novo DVD</h1>
 
@@ -21,7 +23,7 @@
 
       <input name="acao" type="hidden" value="inserir"/>
 
-      <table>
+      <table class="table">
         <tr>
           <td class="alinharDireita">Título:</td>
           <td>
@@ -148,7 +150,7 @@
 
         <tr>
           <td>
-            <a href="${cp}/Formulários/dvd/listagem.jsp">Voltar</a>
+            <a class="link" href="${cp}/Formulários/dvd/listagem.jsp">Voltar</a>
           </td>
           <td class="alinharDireita">
             <input type="submit" value="Salvar"/>
@@ -157,6 +159,8 @@
       </table>
 
     </form>
+
+    <div>
 
   </body>
 

@@ -11,24 +11,22 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="${cp}/css/estilos.css"/>
+          href="../../css/estilos.css"/>
   </head>
 
   <body>
 
+    <div class="main-content">
+
     <h1>Gêneros Cadastrados</h1>
 
-    <p>
-      <a href="${cp}/Formulários/genero/novo.jsp">
-        Novo Gênero
-      </a>
-    </p>
-
-    <table class="tabelaListagem">
+    <table class="table">
       <thead>
         <tr>
           <th>Id</th>
           <th>Descrição</th>
+          <th>Alterar</th>
+          <th>Excluir</th>
         </tr>
       </thead>
       <tbody>
@@ -58,12 +56,20 @@
     </table>
 
     <p>
-      <a href="${cp}/Formulários/genero/novo.jsp">
+      <a class="link" href="${cp}/Formulários/genero/novo.jsp">
         Novo Gênero
       </a>
     </p>
 
-    <p><a href="${cp}/páginaInicial.html">Tela Principal</a></p>
+    <div class="sidebar right">
+      <a href="../../páginaInicial.html" class="link">Tela Principal</a>
+    </div>
+
+    </div>
+  
+    <footer class="footer">
+      “Calote é vida.” — Pitágoras
+    </footer>
 
   </body>
 
