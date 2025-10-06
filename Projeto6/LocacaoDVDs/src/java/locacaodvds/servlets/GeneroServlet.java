@@ -13,15 +13,15 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
-import locacaodvds.dao.AtorDAO;
-import locacaodvds.entidades.Ator;
+import locacaodvds.dao.GeneroDAO;
+import locacaodvds.entidades.Genero;
 
 /**
  *
  * @author Samuel
  */
-@WebServlet(name = "AtorServlet", urlPatterns = {"/processaAtor"})
-public class AtorServlet extends HttpServlet {
+@WebServlet(name = "GeneroServlet", urlPatterns = {"/processaGenero"})
+public class GeneroServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,83 +35,71 @@ public class AtorServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
-
+        
+        
+            
         String acao = request.getParameter( "acao" );
-        AtorDAO dao = null;
+        GeneroDAO dao = null;
         RequestDispatcher disp = null;
 
         try {
 
-            dao = new AtorDAO();
+            dao = new GeneroDAO();
 
             if ( acao.equals( "inserir" ) ) {
 
-                String nome = request.getParameter( "nome" );
-                String sobrenome = request.getParameter("sobrenome");
-                String dataEstreia = request.getParameter("data_estreia");
+                String descricao = request.getParameter( "descricao" );
+                Genero genero = new Genero();
+                genero.setDescricao(descricao);
 
-                Ator ator = new Ator();
-                ator.setNome(nome);
-                ator.setSobrenome(sobrenome);
-                ator.setDataEstreia(dataEstreia);
-
-                dao.salvar( ator );
+                dao.salvar( genero );
 
                 disp = request.getRequestDispatcher(
-                        "/Formulários/ator/listagem.jsp" );
+                        "/Formulários/genero/listagem.jsp" );
 
             } else if ( acao.equals( "alterar" ) ) {
 
                 int id = Integer.parseInt(request.getParameter( "id" ));
+                
+                String descricao = request.getParameter( "descricao" );
+                Genero genero = new Genero();
+                
+                genero.setId(id);
+                genero.setDescricao(descricao);
 
-                String nome = request.getParameter( "nome" );
-                String sobrenome = request.getParameter("sobrenome");
-                String dataEstreia = request.getParameter("data_estreia");
-
-
-                Ator ator = new Ator();
-                ator.setId(id);
-                ator.setNome(nome);
-                ator.setSobrenome(sobrenome);
-                ator.setDataEstreia(dataEstreia);
-
-                dao.atualizar( ator );
+                dao.atualizar( genero );
 
                 disp = request.getRequestDispatcher(
-                        "/Formulários/ator/listagem.jsp" );
+                        "/Formulários/genero/listagem.jsp" );
 
             } else if ( acao.equals( "excluir" ) ) {
 
                 int id = Integer.parseInt(request.getParameter( "id" ));
 
-                Ator ator = new Ator();
-                ator.setId( id );
+                Genero genero = new Genero();
+                genero.setId( id );
 
-                dao.excluir( ator );
+                dao.excluir( genero );
 
                 disp = request.getRequestDispatcher(
-                        "/Formulários/ator/listagem.jsp" );
+                        "/Formulários/genero/listagem.jsp" );
 
             } else {
-
+                
                 int id = Integer.parseInt(request.getParameter( "id" ));
-                Ator ator = dao.obterPorId( id );
-                request.setAttribute( "ator", ator );
+                Genero genero = dao.obterPorId(id);
 
-                //System.out.println("coiso aq  -> " + acao);
-
+                request.setAttribute( "genero", genero );
+                        
                 if ( acao.equals( "prepararAlteracao" ) ) {
 
-                    //System.out.println("oi cebola");
-
                     disp = request.getRequestDispatcher( 
-                            "/Formulários/ator/alterar.jsp" );
+                            "/Formulários/genero/alterar.jsp" );
                 } else if ( acao.equals( "prepararExclusao" ) ) {
                     disp = request.getRequestDispatcher( 
-                            "/Formulários/ator/excluir.jsp" );
+                            "/Formulários/genero/excluir.jsp" );
                 }
-
+                
             }
 
         } catch ( SQLException exc ) {
@@ -129,7 +117,6 @@ public class AtorServlet extends HttpServlet {
         if ( disp != null ) {
             disp.forward( request, response );
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

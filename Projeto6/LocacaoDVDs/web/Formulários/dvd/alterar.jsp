@@ -17,7 +17,7 @@
 
     <h1>Alterar DVD</h1>
 
-    <form method="post" action="${cp}/TODO">
+    <form method="post" action="${cp}/processaDVD">
 
       <input name="acao" type="hidden" value="alterar"/>
       <input name="id" type="hidden" value="${requestScope.dvd.id}"/>
@@ -43,7 +43,7 @@
                    size="20"
                    maxlength="30"
                    required
-                   value="${requestScope.dvd.ano_lancamento}"/>
+                   value="${requestScope.dvd.anoLancamento}"/>
           </td>
         </tr>
 
@@ -52,15 +52,15 @@
           <td>
 
             <jsp:useBean 
-                id="servicos"
+                id="servicos1"
                 scope="page"
-                class="TODO"/>
+                class="locacaodvds.services.AtorService"/>
 
             <select name="idAtorPrincipal" required>
-              <c:forEach items="${servicos.todos}" var="ator">
+              <c:forEach items="${servicos1.todos}" var="ator">
                 <c:choose>
-                  <c:when test="${requestScope.dvd.ator.id eq ator.id}">
-                    <option value="${ator.id}" selected>
+                  <c:when test="${requestScope.dvd.atorPrincipal.id eq ator.id}">
+                    <option value="${atorPrincipal.id}" selected>
                       ${ator.nome}
                     </option>
                   </c:when>
@@ -81,14 +81,14 @@
           <td>
 
             <jsp:useBean 
-                id="servicos"
+                id="servicos2"
                 scope="page"
-                class="TODO"/>
+                class="locacaodvds.services.AtorService"/>
 
             <select name="idAtorCoadjuvante" required>
-              <c:forEach items="${servicos.todos}" var="ator">
+              <c:forEach items="${servicos2.todos}" var="ator">
                 <c:choose>
-                  <c:when test="${requestScope.dvd.ator.id eq ator.id}">
+                  <c:when test="${requestScope.dvd.atorCoadjuvante.id eq ator.id}">
                     <option value="${ator.id}" selected>
                       ${ator.nome}
                     </option>
@@ -113,7 +113,7 @@
                    size="20"
                    maxlength="30"
                    required
-                   value="${requestScope.dvd.data_lancamento}"/>
+                   value="${requestScope.dvd.dataLancamento}"/>
           </td>
         </tr>
 
@@ -125,7 +125,7 @@
                    size="20"
                    maxlength="30"
                    required
-                   value="${requestScope.dvd.duracao_minutos}"/>
+                   value="${requestScope.dvd.duracaoMinutos}"/>
           </td>
         </tr>
 
@@ -134,14 +134,14 @@
           <td>
 
             <jsp:useBean 
-                id="servicos"
+                id="servicos3"
                 scope="page"
-                class="TODO"/>
+                class="locacaodvds.services.ClassificacaoService"/>
 
             <select name="idClassificacaoEtaria" required>
-              <c:forEach items="${servicos.todos}" var="classificacao_etaria">
+              <c:forEach items="${servicos3.todos}" var="classificacao_etaria">
                 <c:choose>
-                  <c:when test="${requestScope.dvd.classificacao_etaria.id eq classificacao_etaria.id}">
+                  <c:when test="${requestScope.dvd.classificacaoEtaria.id eq classificacao_etaria.id}">
                     <option value="${classificacao_etaria.id}" selected>
                       ${classificacao_etaria.descricao}
                     </option>
@@ -163,12 +163,12 @@
           <td>
 
             <jsp:useBean 
-                id="servicos"
+                id="servicos4"
                 scope="page"
-                class="TODO"/>
+                class="locacaodvds.services.GeneroService"/>
 
             <select name="idGenero" required>
-              <c:forEach items="${servicos.todos}" var="genero">
+              <c:forEach items="${servicos4.todos}" var="genero">
                 <c:choose>
                   <c:when test="${requestScope.dvd.genero.id eq genero.id}">
                     <option value="${genero.id}" selected>
@@ -189,7 +189,7 @@
 
         <tr>
           <td>
-            <a href="${cp}/TODO">Voltar</a>
+            <a href="${cp}/Formulários/dvd/listagem.jsp">Voltar</a>
           </td>
           <td class="alinharDireita">
             <input type="submit" value="Alterar"/>

@@ -17,7 +17,7 @@
 
     <h1>Novo Gênero</h1>
 
-    <form method="post" action="${cp}/TODO">
+    <form method="post" action="${cp}/processaGenero">
 
       <input name="acao" type="hidden" value="inserir"/>
 
@@ -35,7 +35,7 @@
 
         <tr>
           <td>
-            <a href="${cp}/TODO">Voltar</a>
+            <a href="${cp}/Formulário/genero/listagem.jsp">Voltar</a>
           </td>
           <td class="alinharDireita">
             <input type="submit" value="Salvar"/>

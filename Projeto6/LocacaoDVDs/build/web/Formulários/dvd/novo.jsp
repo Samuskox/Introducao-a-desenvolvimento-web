@@ -5,7 +5,7 @@
 
 <html>
   <head>
-    <title>Nova Cidade</title>
+    <title>Novo DVD</title>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
@@ -15,9 +15,9 @@
 
   <body>
 
-    <h1>Nova Cidade</h1>
+    <h1>Novo DVD</h1>
 
-    <form method="post" action="${cp}/TODO">
+    <form method="post" action="${cp}/processaDVD">
 
       <input name="acao" type="hidden" value="inserir"/>
 
@@ -51,12 +51,12 @@
             <jsp:useBean 
                 id="servicos"
                 scope="page"
-                class="TODO"/>
+                class="locacaodvds.services.AtorService"/>
 
             <select name="idAtorPrincipal" required>
-              <c:forEach items="${servicos.todos}" var="ator">
-                <option value="${ator.id}">
-                  ${ator.nome}
+              <c:forEach items="${servicos.todos}" var="atorP">
+                <option value="${atorP.id}">
+                  ${atorP.nome}
                 </option>
               </c:forEach>
             </select>
@@ -69,14 +69,14 @@
           <td>
 
             <jsp:useBean 
-                id="servicos"
+                id="servicos1"
                 scope="page"
-                class="TODO"/>
+                class="locacaodvds.services.AtorService"/>
 
             <select name="idAtorCoadjuvante" required>
-              <c:forEach items="${servicos.todos}" var="ator">
-                <option value="${ator.id}">
-                  ${ator.nome}
+              <c:forEach items="${servicos1.todos}" var="atorC">
+                <option value="${atorC.id}">
+                  ${atorC.nome}
                 </option>
               </c:forEach>
             </select>
@@ -88,7 +88,7 @@
           <td class="alinharDireita">Data de Lançamento:</td>
           <td>
             <input name="data_lancamento"
-                   type="text"
+                   type="date"
                    size="20"
                    maxlength="30"
                    required/>
@@ -111,12 +111,12 @@
           <td>
 
             <jsp:useBean 
-                id="servicos"
+                id="servicos2"
                 scope="page"
-                class="TODO"/>
+                class="locacaodvds.services.ClassificacaoService"/>
 
             <select name="idClassificacaoEtaria" required>
-              <c:forEach items="${servicos.todos}" var="classificacao_etaria">
+              <c:forEach items="${servicos2.todos}" var="classificacao_etaria">
                 <option value="${classificacao_etaria.id}">
                   ${classificacao_etaria.descricao}
                 </option>
@@ -131,12 +131,12 @@
           <td>
 
             <jsp:useBean 
-                id="servicos"
+                id="servicos3"
                 scope="page"
-                class="TODO"/>
+                class="locacaodvds.services.GeneroService"/>
 
             <select name="idGenero" required>
-              <c:forEach items="${servicos.todos}" var="genero">
+              <c:forEach items="${servicos3.todos}" var="genero">
                 <option value="${genero.id}">
                   ${genero.descricao}
                 </option>
@@ -148,7 +148,7 @@
 
         <tr>
           <td>
-            <a href="${cp}/TODO">Voltar</a>
+            <a href="${cp}/Formulários/dvd/listagem.jsp">Voltar</a>
           </td>
           <td class="alinharDireita">
             <input type="submit" value="Salvar"/>

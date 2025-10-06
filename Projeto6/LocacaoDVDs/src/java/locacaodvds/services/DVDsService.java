@@ -19,10 +19,11 @@ public class DVDsService {
 
         List<DVDs> lista = new ArrayList<>();
         DVDsDAO dao = null;
-
+        
         try {
             dao = new DVDsDAO();
             lista = dao.listarTodos();
+            //System.out.println("dvds -> "+ lista);
         } catch ( SQLException exc ) {
             exc.printStackTrace();
         } finally {

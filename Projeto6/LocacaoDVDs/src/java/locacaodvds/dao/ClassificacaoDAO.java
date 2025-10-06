@@ -25,7 +25,7 @@ public class ClassificacaoDAO extends DAO<ClassificacaoEtaria> {
         PreparedStatement stmt = getConnection().prepareStatement(
                 """
                 INSERT INTO  
-                classificao_etaria( descricao )  
+                classificacao_etaria( descricao )  
                 VALUES( ? );
                 """ );
         
@@ -64,7 +64,7 @@ public class ClassificacaoDAO extends DAO<ClassificacaoEtaria> {
                 """ );
         
         stmt.setInt( 1, obj.getId() );
-
+        System.out.println("EXCLUIR DAO -> " +  obj.getId());
         stmt.executeUpdate();
         stmt.close();
     }

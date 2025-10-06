@@ -17,15 +17,24 @@
 
     <h1>Excluir Classificação Etária</h1>
 
-    <form method="post" action="${cp}/TODO">
+    <form method="post" action="${cp}/processaClassificacao">
 
       <input name="acao" type="hidden" value="excluir"/>
-      <input name="id" type="hidden" value="${requestScope.classificacao_etaria.id}"/>
+      <input name="id" type="hidden" value="${requestScope.classificacaoEtaria.id}"/>
 
       <table>
         <tr>
           <td class="alinharDireita">Descrição:</td>
-          <td>${requestScope.classificacao_etaria.descricao}</td>
+          <td>${requestScope.classificacaoEtaria.descricao}</td>
+        </tr>
+        
+         <tr>
+          <td>
+            <a href="${cp}/Formulários/classificacaoetaria/listagem.jsp">Voltar</a>
+          </td>
+          <td class="alinharDireita">
+            <input type="submit" value="Excluir"/>
+          </td>
         </tr>
       </table>
 

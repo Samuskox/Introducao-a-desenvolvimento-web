@@ -69,7 +69,7 @@
       </a>
     </p>
 
-    <p><a href="${cp}/index.html">Tela Principal</a></p>
+    <p><a href="${cp}/páginaInicial.html">Tela Principal</a></p>
 
   </body>
 

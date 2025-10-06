@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/projetos/capitulo05/CadastroClientes/src/java/cadastroclientes/dao/ClienteDAO.java</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/projetos/capitulo05/CadastroClientes/src/java/cadastroclientes/servicos/ClienteServices.java</file>
+            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/projetos/capitulo05/CadastroClientes/web/formularios/cidades/listagem.jsp</file>
+            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/projetos/capitulo05/CadastroClientes/web/formularios/cidades/alterar.jsp</file>
+            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/projetos/capitulo05/CadastroClientes/web/formularios/cidades/novo.jsp</file>
+            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/projetos/capitulo05/CadastroClientes/web/formularios/cidades/excluir.jsp</file>
             <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/projetos/capitulo05/CadastroClientes/src/java/cadastroclientes/controladores/CidadesServlet.java</file>
         </group>
     </open-files>

@@ -17,7 +17,7 @@
 
     <h1>Excluir Gênero</h1>
 
-    <form method="post" action="${cp}/TODO">
+    <form method="post" action="${cp}/processaGenero">
 
       <input name="acao" type="hidden" value="excluir"/>
       <input name="id" type="hidden" value="${requestScope.genero.id}"/>
@@ -26,6 +26,14 @@
         <tr>
           <td class="alinharDireita">Descrição:</td>
           <td>${requestScope.genero.descricao}</td>
+        </tr>
+        <tr>
+          <td>
+            <a href="${cp}/Formulários/genero/listagem.jsp">Voltar</a>
+          </td>
+          <td class="alinharDireita">
+            <input type="submit" value="Excluir"/>
+          </td>
         </tr>
       </table>
 

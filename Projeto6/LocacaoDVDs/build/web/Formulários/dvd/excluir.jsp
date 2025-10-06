@@ -17,7 +17,7 @@
 
     <h1>Excluir DVD</h1>
 
-    <form method="post" action="${cp}/TODO">
+    <form method="post" action="${cp}/processaDVD">
 
       <input name="acao" type="hidden" value="excluir"/>
       <input name="id" type="hidden" value="${requestScope.dvd.id}"/>
@@ -30,42 +30,42 @@
 
         <tr>
           <td class="alinharDireita">Ano de Lançamento:</td>
-          <td>${requestScope.dvd.ano_lancamento}</td>
+          <td>${requestScope.dvd.anoLancamento}</td>
         </tr>
 
         <tr>
           <td class="alinharDireita">Ator Principal:</td>
-          <td>${requestScope.dvd.ator_principal_id}</td>
+          <td>${requestScope.dvd.atorPrincipal.nome}</td>
         </tr>
 
         <tr>
           <td class="alinharDireita">Ator Coadjuvante:</td>
-          <td>${requestScope.dvd.ator_coadjuvante_id}</td>
+          <td>${requestScope.dvd.atorCoadjuvante.nome}</td>
         </tr>
 
         <tr>
           <td class="alinharDireita">Data de Lançamento:</td>
-          <td>${requestScope.dvd.data_lancamento}</td>
+          <td>${requestScope.dvd.dataLancamento}</td>
         </tr>
 
         <tr>
           <td class="alinharDireita">Duração em Minutos:</td>
-          <td>${requestScope.dvd.duracao_minutos}</td>
+          <td>${requestScope.dvd.duracaoMinutos}</td>
         </tr>
 
         <tr>
           <td class="alinharDireita">Classificação Etária:</td>
-          <td>${requestScope.dvd.classificacao_etaria_id}</td>
+          <td>${requestScope.dvd.classificacaoEtaria.descricao}</td>
         </tr>
 
         <tr>
           <td class="alinharDireita">Gênero:</td>
-          <td>${requestScope.dvd.genero_id}</td>
+          <td>${requestScope.dvd.genero.descricao}</td>
         </tr>
 
         <tr>
           <td>
-            <a href="${cp}/TODO">Voltar</a>
+            <a href="${cp}/Formulários/dvd/listagem.jsp">Voltar</a>
           </td>
           <td class="alinharDireita">
             <input type="submit" value="Excluir"/>

@@ -41,6 +41,10 @@ public class DVDsDAO extends DAO<DVDs>{
         stmt.setInt(2, obj.getAnoLancamento());
         stmt.setInt(3, obj.getAtorPrincipal().getId());
         stmt.setInt(4, obj.getAtorCoadjuvante().getId());
+        
+        System.out.println("Ator Principal ID: " + obj.getAtorPrincipal().getId());
+        System.out.println("Ator Coadjuvante ID: " + obj.getAtorCoadjuvante().getId());
+        
         stmt.setString(5, obj.getDataLancamento());
         stmt.setInt(6, obj.getDuracaoMinutos());
         stmt.setInt(7, obj.getClassificacaoEtaria().getId());
@@ -102,15 +106,15 @@ public class DVDsDAO extends DAO<DVDs>{
         PreparedStatement stmt = getConnection().prepareStatement(
                 """
                 SELECT
-                    d.id idDvd,
-                    d.titulo tituloDvd,
-                    d.ano_lancamento anoLancamentoDvd,
-                    d.data_lancamento dataLancamentoDvd,
-                    d.duracao_minutos duracaoDvd,
-                    a.id idAtorPrincipal,
-                    a.nome nomeAtorPrincipal,
-                    a.id idAtorCoadjuvante,
-                    a.nome nomeAtorCoadjuvante,
+                    d.id id,
+                    d.titulo titulo,
+                    d.ano_lancamento anoLancamento,
+                    d.data_lancamento dataLancamento,
+                    d.duracao_minutos duracao,
+                    ap.id idAtorPrincipal,
+                    ap.nome nomeAtorPrincipal,
+                    ac.id idAtorCoadjuvante,
+                    ac.nome nomeAtorCoadjuvante,
                     ce.id idClassificacao,
                     ce.descricao descricaoClassificacao,
                     g.id idGenero,
@@ -118,13 +122,14 @@ public class DVDsDAO extends DAO<DVDs>{
                 
                 FROM
                     dvd d,
-                    ator a,
+                    ator ap,
+                    ator ac,
                     classificacao_etaria ce,
                     genero g
                 
                 WHERE
-                    d.ator_principal_id = a.id AND
-                    d.ator_coadjuvante_id = a.id AND
+                    d.ator_principal_id = ap.id AND
+                    d.ator_coadjuvante_id = ac.id AND
                     d.classificacao_etaria_id = ce.id AND
                     d.genero_id = g.id
                 
@@ -136,27 +141,28 @@ public class DVDsDAO extends DAO<DVDs>{
 
         while (resultSet.next()) {
             DVDs dvd = new DVDs();
-            Ator ator = new Ator();
+            Ator atorPrincipal = new Ator();
+            Ator atorCoadjuvante = new Ator();
             ClassificacaoEtaria classificacao = new ClassificacaoEtaria();
             Genero genero = new Genero();
             
             dvd.setId(resultSet.getInt("id"));
             dvd.setTitulo(resultSet.getString("titulo"));
-            dvd.setAnoLancamento(resultSet.getInt("ano_lancamento"));
+            dvd.setAnoLancamento(resultSet.getInt("anoLancamento"));
             
             
-            ator.setId(resultSet.getInt("ator_principal_id"));
-            dvd.setAtorPrincipal(ator);
-            ator.setId(resultSet.getInt("ator_coadjuvante_id"));
-            dvd.setAtorCoadjuvante(ator);
+            atorPrincipal.setId(resultSet.getInt("idAtorPrincipal"));
+            dvd.setAtorPrincipal(atorPrincipal);
+            atorCoadjuvante.setId(resultSet.getInt("idAtorCoadjuvante"));
+            dvd.setAtorCoadjuvante(atorCoadjuvante);
             
-            dvd.setDataLancamento(resultSet.getString("data_lancamento"));
-            dvd.setDuracaoMinutos(resultSet.getInt("duracao_minutos"));
+            dvd.setDataLancamento(resultSet.getString("dataLancamento"));
+            dvd.setDuracaoMinutos(resultSet.getInt("duracao"));
             
-            classificacao.setId(resultSet.getInt("classificacao_etaria_id"));
+            classificacao.setId(resultSet.getInt("idClassificacao"));
             dvd.setClassificacaoEtaria(classificacao);
             
-            genero.setId(resultSet.getInt("genero_id"));
+            genero.setId(resultSet.getInt("idGenero"));
             dvd.setGenero(genero);
 
             lista.add(dvd);
@@ -176,17 +182,17 @@ public class DVDsDAO extends DAO<DVDs>{
         PreparedStatement stmt = getConnection().prepareStatement(
                 """
                 SELECT
-                    d.id idDvd,  
-                    d.titulo tituloDvd,  
-                    d.ano_lancamento anoLancamentoDvd,  
-                    d.data_lancamento dataLancamentoDvd,  
-                    d.duracao_minutos duracaoMinutosDvd,  
+                    d.id id,  
+                    d.titulo titulo,  
+                    d.ano_lancamento anoLancamento,  
+                    d.data_lancamento dataLancamento,  
+                    d.duracao_minutos duracaoMinutos,  
                 
-                    a.id idAtorPrincipal,  
-                    a.nome nomeAtorPrincipal,  
+                    ap.id idAtorPrincipal,  
+                    ap.nome nomeAtorPrincipal,  
                 
-                    a.id idAtorCoadjuvante,  
-                    a.nome nomeAtorCoadjuvante,  
+                    ac.id idAtorCoadjuvante,  
+                    ac.nome nomeAtorCoadjuvante,  
                 
                     ce.id idClassificacaoEtaria,  
                     ce.descricao descricaoClassificacaoEtaria,  
@@ -195,14 +201,15 @@ public class DVDsDAO extends DAO<DVDs>{
                     g.descricao descricaoGenero  
                 FROM  
                     dvd d,  
-                    ator a,  
+                    ator ap, 
+                    ator ac,
                     classificacao_etaria ce,  
                     genero g  
                 
                 WHERE  
                     d.id = ? AND  
-                    d.ator_principal_id = a.id AND  
-                    d.ator_coadjuvante_id = a.id AND  
+                    d.ator_principal_id = ap.id AND  
+                    d.ator_coadjuvante_id = ac.id AND  
                     d.classificacao_etaria_id = ce.id AND  
                     d.genero_id = g.id;
                 """ );
@@ -219,21 +226,21 @@ public class DVDsDAO extends DAO<DVDs>{
             
             dvd.setId(resultSet.getInt("id"));
             dvd.setTitulo(resultSet.getString("titulo"));
-            dvd.setAnoLancamento(resultSet.getInt("ano_lancamento"));
+            dvd.setAnoLancamento(resultSet.getInt("anoLancamento"));
             
             
-            ator.setId(resultSet.getInt("ator_principal_id"));
+            ator.setId(resultSet.getInt("idAtorPrincipal"));
             dvd.setAtorPrincipal(ator);
-            ator.setId(resultSet.getInt("ator_coadjuvante_id"));
+            ator.setId(resultSet.getInt("idAtorCoadjuvante"));
             dvd.setAtorCoadjuvante(ator);
             
-            dvd.setDataLancamento(resultSet.getString("data_lancamento"));
-            dvd.setDuracaoMinutos(resultSet.getInt("duracao_minutos"));
+            dvd.setDataLancamento(resultSet.getString("dataLancamento"));
+            dvd.setDuracaoMinutos(resultSet.getInt("duracaoMinutos"));
             
-            classificacao.setId(resultSet.getInt("classificacao_etaria_id"));
+            classificacao.setId(resultSet.getInt("idClassificacaoEtaria"));
             dvd.setClassificacaoEtaria(classificacao);
             
-            genero.setId(resultSet.getInt("genero_id"));
+            genero.setId(resultSet.getInt("idGenero"));
             dvd.setGenero(genero);
         }
 

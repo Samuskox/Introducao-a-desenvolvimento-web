@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
-<c:set var="prefixo" value="TODO?acao=preparar"/>
+<c:set var="prefixo" value="processaGenero?acao=preparar"/>
 <!DOCTYPE html>
 
 <html>
@@ -19,7 +19,7 @@
     <h1>Gêneros Cadastrados</h1>
 
     <p>
-      <a href="${cp}/TODO">
+      <a href="${cp}/Formulários/genero/novo.jsp">
         Novo Gênero
       </a>
     </p>
@@ -38,7 +38,7 @@
             scope="page"
             class="locacaodvds.services.GeneroService"/>
 
-        <c:forEach items="${services.todos}" var="genero">
+        <c:forEach items="${servicos.todos}" var="genero">
           <tr>
             <td>${genero.id}</td>
             <td>${genero.descricao}</td>
@@ -58,12 +58,12 @@
     </table>
 
     <p>
-      <a href="${cp}/TODO">
+      <a href="${cp}/Formulários/genero/novo.jsp">
         Novo Gênero
       </a>
     </p>
 
-    <p><a href="${cp}/TODO">Tela Principal</a></p>
+    <p><a href="${cp}/páginaInicial.html">Tela Principal</a></p>
 
   </body>
 

@@ -1,12 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
-<c:set var="prefixo" value="TODO?acao=preparar"/>
+<c:set var="prefixo" value="processaDVD?acao=preparar"/>
 <!DOCTYPE html>
 
 <html>
   <head>
-    <title>Cidades Cadastradas</title>
+    <title>DVDs Cadastrados</title>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
@@ -19,8 +19,8 @@
     <h1>Cidades Cadastradas</h1>
 
     <p>
-      <a href="${cp}/TODO">
-        Nova Cidade
+      <a href="${cp}/Formulários/dvd/novo.jsp">
+        Novo DVD
       </a>
     </p>
 
@@ -45,19 +45,19 @@
         <jsp:useBean
             id="servicos"
             scope="page"
-            class="TODO"/>
+            class="locacaodvds.services.DVDsService"/>
 
         <c:forEach items="${servicos.todos}" var="dvd">
           <tr>
             <td>${dvd.id}</td>
             <td>${dvd.titulo}</td>
-            <td>${dvd.ano_lancamento}</td>
-            <td>${dvd.ator_principal_id}</td>
-            <td>${dvd.ator_coadjuvante_id}</td>
-            <td>${dvd.data_lancamento}</td>
-            <td>${dvd.duracao_minutos}</td>
-            <td>${dvd.classificacao_etaria_id}</td>
-            <td>${dvd.genero_id}</td>
+            <td>${dvd.anoLancamento}</td>
+            <td>${dvd.atorPrincipal.nome}</td>
+            <td>${dvd.atorCoadjuvante.nome}</td>
+            <td>${dvd.dataLancamento}</td>
+            <td>${dvd.duracaoMinutos}</td>
+            <td>${dvd.classificacaoEtaria.descricao}</td>
+            <td>${dvd.genero.descricao}</td>
             <td>
               <a href="${cp}/${prefixo}Alteracao&id=${dvd.id}">
                 Alterar
@@ -74,12 +74,12 @@
     </table>
 
     <p>
-      <a href="${cp}/TODO">
+      <a href="${cp}/Formulários/dvd/novo.jsp">
         Novo DVD
       </a>
     </p>
 
-    <p><a href="${cp}/TODO">Tela Principal</a></p>
+    <p><a href="${cp}/páginaInicial.html">Tela Principal</a></p>
 
   </body>
 

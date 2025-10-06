@@ -6,22 +6,23 @@ package locacaodvds.servlets;
 
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
-import locacaodvds.dao.AtorDAO;
-import locacaodvds.entidades.Ator;
+import locacaodvds.dao.ClassificacaoDAO;
+import locacaodvds.entidades.ClassificacaoEtaria;
+
+
 
 /**
  *
  * @author Samuel
  */
-@WebServlet(name = "AtorServlet", urlPatterns = {"/processaAtor"})
-public class AtorServlet extends HttpServlet {
+@WebServlet(name = "ClassificacaoServlet", urlPatterns = {"/processaClassificacao"})
+public class ClassificacaoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,83 +36,78 @@ public class AtorServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
-
+           
         String acao = request.getParameter( "acao" );
-        AtorDAO dao = null;
+        ClassificacaoDAO dao = null;
         RequestDispatcher disp = null;
-
+        //ystem.out.println("cebol oiaaaa");
+        
         try {
 
-            dao = new AtorDAO();
+            dao = new ClassificacaoDAO();
 
             if ( acao.equals( "inserir" ) ) {
 
-                String nome = request.getParameter( "nome" );
-                String sobrenome = request.getParameter("sobrenome");
-                String dataEstreia = request.getParameter("data_estreia");
+                String descricao = request.getParameter( "descricao" );
+                ClassificacaoEtaria genero = new ClassificacaoEtaria();
+                genero.setDescricao(descricao);
 
-                Ator ator = new Ator();
-                ator.setNome(nome);
-                ator.setSobrenome(sobrenome);
-                ator.setDataEstreia(dataEstreia);
-
-                dao.salvar( ator );
+                dao.salvar( genero );
 
                 disp = request.getRequestDispatcher(
-                        "/Formulários/ator/listagem.jsp" );
+                        "/Formulários/classificacaoetaria/listagem.jsp" );
 
             } else if ( acao.equals( "alterar" ) ) {
-
+                //System.out.println("cebol oifdfadsgdfsgd");
                 int id = Integer.parseInt(request.getParameter( "id" ));
-
-                String nome = request.getParameter( "nome" );
-                String sobrenome = request.getParameter("sobrenome");
-                String dataEstreia = request.getParameter("data_estreia");
-
-
-                Ator ator = new Ator();
-                ator.setId(id);
-                ator.setNome(nome);
-                ator.setSobrenome(sobrenome);
-                ator.setDataEstreia(dataEstreia);
-
-                dao.atualizar( ator );
+                
+                
+                //System.out.println("esse é o id -> " + id);
+               
+                String descricao = request.getParameter( "descricao" );
+                
+                System.out.println("esse é descricao -> " + descricao);
+                ClassificacaoEtaria classificacaoEtaria = new ClassificacaoEtaria();
+                
+                classificacaoEtaria.setId(id);
+                classificacaoEtaria.setDescricao(descricao);
+                //System.out.println("esse é o id -> " + id);
+                //System.out.println("esse é descricao -> " + descricao);
+                dao.atualizar( classificacaoEtaria );
 
                 disp = request.getRequestDispatcher(
-                        "/Formulários/ator/listagem.jsp" );
+                        "/Formulários/classificacaoetaria/listagem.jsp" );
 
             } else if ( acao.equals( "excluir" ) ) {
-
+                System.out.println("daj ldanjasdlkdsa");
                 int id = Integer.parseInt(request.getParameter( "id" ));
+                System.out.println("id -> "+ id);
 
-                Ator ator = new Ator();
-                ator.setId( id );
+                ClassificacaoEtaria classificacaoEtaria = new ClassificacaoEtaria();
+                classificacaoEtaria.setId( id );
+                System.out.println("id ->" +id);
 
-                dao.excluir( ator );
+                dao.excluir( classificacaoEtaria );
 
                 disp = request.getRequestDispatcher(
-                        "/Formulários/ator/listagem.jsp" );
+                        "/Formulários/classificacaoetaria/listagem.jsp" );
 
             } else {
-
+                
                 int id = Integer.parseInt(request.getParameter( "id" ));
-                Ator ator = dao.obterPorId( id );
-                request.setAttribute( "ator", ator );
-
-                //System.out.println("coiso aq  -> " + acao);
-
+                ClassificacaoEtaria classificacao = dao.obterPorId(id);
+      
+                request.setAttribute( "classificacaoEtaria", classificacao );
+                        
                 if ( acao.equals( "prepararAlteracao" ) ) {
 
-                    //System.out.println("oi cebola");
-
                     disp = request.getRequestDispatcher( 
-                            "/Formulários/ator/alterar.jsp" );
+                            "/Formulários/classificacaoetaria/alterar.jsp" );
                 } else if ( acao.equals( "prepararExclusao" ) ) {
                     disp = request.getRequestDispatcher( 
-                            "/Formulários/ator/excluir.jsp" );
+                            "/Formulários/classificacaoetaria/excluir.jsp" );
                 }
-
+                
             }
 
         } catch ( SQLException exc ) {
@@ -129,7 +125,7 @@ public class AtorServlet extends HttpServlet {
         if ( disp != null ) {
             disp.forward( request, response );
         }
-        
+    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
