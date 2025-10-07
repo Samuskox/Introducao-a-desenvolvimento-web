@@ -15,6 +15,8 @@
 
   <body>
 
+    <div class="main-content">
+
     <h1>Excluir DVD</h1>
 
     <form method="post" action="${cp}/processaDVD">
@@ -22,7 +24,7 @@
       <input name="acao" type="hidden" value="excluir"/>
       <input name="id" type="hidden" value="${requestScope.dvd.id}"/>
 
-      <table>
+      <table class="table">
         <tr>
           <td class="alinharDireita">Título:</td>
           <td>${requestScope.dvd.titulo}</td>
@@ -65,7 +67,7 @@
 
         <tr>
           <td>
-            <a href="${cp}/Formulários/dvd/listagem.jsp">Voltar</a>
+            <a class="link" href="${cp}/Formulários/dvd/listagem.jsp">Voltar</a>
           </td>
           <td class="alinharDireita">
             <input type="submit" value="Excluir"/>
@@ -74,6 +76,11 @@
       </table>
 
     </form>
+  </div>
+
+  <footer class="footer">
+    “Calote é vida.” — Pitágoras
+  </footer>
 
   </body>
 

@@ -78,11 +78,19 @@ public class GeneroServlet extends HttpServlet {
 
                 Genero genero = new Genero();
                 genero.setId( id );
+                try {
+                    dao.excluir( genero );
+                    disp = request.getRequestDispatcher(
+                        "/Formulários/genero/listagem.jsp?msg=Genero excluído com sucesso" );
+                } catch (Exception e) {
+                    System.out.println("ta entrando aq");
+                    request.setAttribute("erro", e.getMessage());
+                    disp = request.getRequestDispatcher("/Formulários/genero/erro.jsp");
+                    disp.forward(request, response);
+                }
+                
 
-                dao.excluir( genero );
-
-                disp = request.getRequestDispatcher(
-                        "/Formulários/genero/listagem.jsp" );
+                
 
             } else {
                 

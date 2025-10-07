@@ -15,6 +15,8 @@
 
   <body>
 
+    <div class="main-content">
+
     <h1>Alterar DVD</h1>
 
     <form method="post" action="${cp}/processaDVD">
@@ -22,7 +24,7 @@
       <input name="acao" type="hidden" value="alterar"/>
       <input name="id" type="hidden" value="${requestScope.dvd.id}"/>
 
-      <table>
+      <table class="table">
         <tr>
           <td class="alinharDireita">Título: </td>
           <td>
@@ -60,7 +62,7 @@
               <c:forEach items="${servicos1.todos}" var="ator">
                 <c:choose>
                   <c:when test="${requestScope.dvd.atorPrincipal.id eq ator.id}">
-                    <option value="${atorPrincipal.id}" selected>
+                    <option value="${ator.id}" selected>
                       ${ator.nome}
                     </option>
                   </c:when>
@@ -189,7 +191,7 @@
 
         <tr>
           <td>
-            <a href="${cp}/Formulários/dvd/listagem.jsp">Voltar</a>
+            <a class="link" href="${cp}/Formulários/dvd/listagem.jsp">Voltar</a>
           </td>
           <td class="alinharDireita">
             <input type="submit" value="Alterar"/>
@@ -198,6 +200,12 @@
       </table>
 
     </form>
+
+  </div>
+
+  <footer class="footer">
+    “Calote é vida.” — Pitágoras
+  </footer>
 
   </body>
 

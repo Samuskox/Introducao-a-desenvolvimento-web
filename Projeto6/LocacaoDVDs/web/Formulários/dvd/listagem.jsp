@@ -11,14 +11,14 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="../../css/estilos.css"/>
+          href="${cp}/css/estilos.css"/>
   </head>
 
   <body>
 
     <div class="main-content">
 
-    <h1>Cidades Cadastradas</h1>
+    <h1>DVDs Cadastrados</h1>
 
 
     <div class="table-wrapper">
@@ -74,14 +74,14 @@
 
     </div>
 
-    <p>
-      <a class="link" href="${cp}/Formulários/dvd/novo.jsp">
+    <p style="text-align: center;">
+        <a class="link" href="${cp}/Formulários/dvd/novo.jsp">
         Novo DVD
       </a>
     </p>
 
     <div class="sidebar right">
-      <a href="../../páginaInicial.html" class="link">Tela Principal</a>
+      <a href="${cp}/páginaInicial.html" class="link">Tela Principal</a>
     </div>
 
     <footer class="footer">

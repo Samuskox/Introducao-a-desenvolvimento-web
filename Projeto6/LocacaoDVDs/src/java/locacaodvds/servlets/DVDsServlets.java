@@ -88,11 +88,13 @@ public class DVDsServlets extends HttpServlet {
             } else if ( acao.equals( "alterar" ) ) {
 
                 int id = Integer.parseInt(request.getParameter( "id" ));
+                System.out.println("id ->" + id);
                 int idAtorPrincipal = Integer.parseInt(request.getParameter("idAtorPrincipal"));
+                 System.out.println("id qdkj djadsmj->" + idAtorPrincipal);
                 int idAtorCoadjuvante = Integer.parseInt(request.getParameter("idAtorCoadjuvante"));
                 int idClassificacao = Integer.parseInt(request.getParameter("idClassificacaoEtaria"));
                 int idGenero = Integer.parseInt(request.getParameter("idGenero"));
-                
+               
                 String titulo = request.getParameter( "titulo" );
                 int anoLancamento = Integer.parseInt(request.getParameter("ano_lancamento"));
                 String dataLancamento = request.getParameter("data_lancamento");
@@ -125,9 +127,9 @@ public class DVDsServlets extends HttpServlet {
                 dvd.setDuracaoMinutos(duracao);
                 dvd.setClassificacaoEtaria(classificacao);
                 dvd.setGenero(genero);
-
+                //System.out.println("Olá bebe");
                 dao.atualizar( dvd );
-
+                //System.out.println("Olá ksklmsdaklmsad");
                 disp = request.getRequestDispatcher(
                         "/Formulários/dvd/listagem.jsp" );
 

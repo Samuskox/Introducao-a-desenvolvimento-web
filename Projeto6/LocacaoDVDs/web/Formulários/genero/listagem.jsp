@@ -11,7 +11,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="../../css/estilos.css"/>
+          href="${cp}/css/estilos.css"/>
   </head>
 
   <body>
@@ -62,7 +62,7 @@
     </p>
 
     <div class="sidebar right">
-      <a href="../../páginaInicial.html" class="link">Tela Principal</a>
+      <a href="${cp}/páginaInicial.html" class="link">Tela Principal</a>
     </div>
 
     </div>

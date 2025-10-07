@@ -87,11 +87,15 @@ public class AtorServlet extends HttpServlet {
 
                 Ator ator = new Ator();
                 ator.setId( id );
-
-                dao.excluir( ator );
-
-                disp = request.getRequestDispatcher(
+                try {
+                    dao.excluir( ator );
+                    disp = request.getRequestDispatcher(
                         "/Formulários/ator/listagem.jsp" );
+                } catch (Exception e) {
+                    request.setAttribute("erro", e.getMessage());
+                    disp = request.getRequestDispatcher("/Formulários/ator/erro.jsp");
+                    disp.forward(request, response);
+                }
 
             } else {
 

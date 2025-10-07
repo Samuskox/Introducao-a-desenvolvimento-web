@@ -15,14 +15,16 @@
 
   <body>
 
-    <h1>Alterar Genero</h1>
+    <div class="main-content">
+
+    <h1>Alterar Gênero</h1>
 
     <form method="post" action="${cp}/processaGenero">
 
       <input name="acao" type="hidden" value="alterar"/>
       <input name="id" type="hidden" value="${requestScope.genero.id}"/>
 
-      <table>
+      <table class="table">
         <tr>
           <td class="alinharDireita">Descrição:</td>
           <td>
@@ -37,7 +39,7 @@
         
         <tr>
           <td>
-            <a href="${cp}/Formulários/genero/listagem.jsp">Voltar</a>
+            <a class="link" href="${cp}/Formulários/genero/listagem.jsp">Voltar</a>
           </td>
           <td class="alinharDireita">
             <input type="submit" value="Alterar"/>
@@ -46,6 +48,12 @@
       </table>
 
     </form>
+
+    </div>
+
+    <footer class="footer">
+      “Calote é vida.” — Pitágoras
+    </footer>
 
   </body>
 

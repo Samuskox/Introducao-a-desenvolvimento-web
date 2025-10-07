@@ -15,15 +15,17 @@
 
   <body>
 
+    <div class="main-content">
+
     <h1>Novo Ator</h1>
 
     <form method="post" action="${cp}/processaAtor">
 
       <input name="acao" type="hidden" value="inserir"/>
 
-      <table>
+      <table class="table">
         <tr>
-          <td class="alinharDireita">Nome:</td>
+          <td>Nome:</td>
           <td>
             <input name="nome"
                    type="text"
@@ -34,7 +36,7 @@
         </tr>
 
         <tr>
-          <td class="alinharDireita">Sobrenome:</td>
+          <td>Sobrenome:</td>
           <td>
             <input name="sobrenome"
                    type="text"
@@ -45,7 +47,7 @@
         </tr>
 
         <tr>
-          <td class="alinharDireita">Data de Estreia:</td>
+          <td>Data de Estreia:</td>
           <td>
             <input name="data_estreia"
                    type="date"
@@ -57,15 +59,20 @@
 
         <tr>
           <td>
-            <a href="${cp}/Formulários/ator/listagem.jsp">Voltar</a>
+            <a class="link" href="${cp}/Formulários/ator/listagem.jsp">Voltar</a>
           </td>
-          <td class="alinharDireita">
+          <td>
             <input type="submit" value="Salvar"/>
           </td>
         </tr>
       </table>
 
     </form>
+    </div>
+
+    <footer class="footer">
+      “Calote é vida.” — Pitágoras
+    </footer>
 
   </body>
 

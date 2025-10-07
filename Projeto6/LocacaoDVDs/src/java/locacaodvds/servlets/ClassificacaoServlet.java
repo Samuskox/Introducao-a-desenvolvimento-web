@@ -85,13 +85,18 @@ public class ClassificacaoServlet extends HttpServlet {
 
                 ClassificacaoEtaria classificacaoEtaria = new ClassificacaoEtaria();
                 classificacaoEtaria.setId( id );
-                //System.out.println("id ->" +id);
 
-                dao.excluir( classificacaoEtaria );
+                try {
+                    dao.excluir( classificacaoEtaria );
 
-                disp = request.getRequestDispatcher(
+                    disp = request.getRequestDispatcher(
                         "/Formulários/classificacaoetaria/listagem.jsp" );
-
+                
+                } catch (Exception e) {
+                    request.setAttribute("erro", e.getMessage());
+                    disp = request.getRequestDispatcher("/Formulários/classificacaoetaria/erro.jsp");
+                    disp.forward(request, response);
+                }
             } else {
                 
                 int id = Integer.parseInt(request.getParameter( "id" ));

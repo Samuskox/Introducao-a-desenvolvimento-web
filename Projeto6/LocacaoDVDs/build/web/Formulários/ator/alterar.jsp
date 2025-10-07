@@ -15,6 +15,8 @@
 
   <body>
 
+    <div class="main-content">
+
     <h1>Alterar Ator</h1>
 
     <form method="post" action="${cp}/processaAtor">
@@ -22,7 +24,7 @@
       <input name="acao" type="hidden" value="alterar"/>
       <input name="id" type="hidden" value="${requestScope.ator.id}"/>
 
-      <table>
+      <table class="table">
         <tr>
           <td class="alinharDireita">Nome:</td>
           <td>
@@ -61,7 +63,7 @@
         
         <tr>
           <td>
-            <a href="${cp}/Formulários/ator/listagem.jsp">Voltar</a>
+            <a class="link" href="${cp}/Formulários/ator/listagem.jsp">Voltar</a>
           </td>
           <td class="alinharDireita">
             <input type="submit" value="Alterar"/>
@@ -70,6 +72,12 @@
       </table>
 
     </form>
+
+    </div>
+
+    <footer class="footer">
+      “Calote é vida.” — Pitágoras
+    </footer>
 
   </body>
 

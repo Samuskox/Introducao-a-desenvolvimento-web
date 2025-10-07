@@ -16,19 +16,17 @@
 
   <body>
 
+    <div class="main-content">
+
     <h1>Classificações Etárias Cadastrados</h1>
 
-    <p>
-      <a href="${cp}/Formulários/classificacaoetaria/novo.jsp">
-        Nova Classificação Etária
-      </a>
-    </p>
-
-    <table class="tabelaListagem">
+    <table class="table">
       <thead>
         <tr>
           <th>Id</th>
           <th>Descrição</th>
+          <th>Alterar</th>
+          <th>Excluir</th>
         </tr>
       </thead>
       <tbody>
@@ -58,12 +56,20 @@
     </table>
 
     <p>
-      <a href="${cp}/Formulários/classificacaoetaria/novo.jsp">
+      <a class="link" href="${cp}/Formulários/classificacaoetaria/novo.jsp">
         Nova Classificação Etária
       </a>
     </p>
 
-    <p><a href="${cp}/páginaInicial.html">Tela Principal</a></p>
+    </div>
+
+    <div class="sidebar right">
+      <a href="${cp}/páginaInicial.html" class="link">Tela principal</a>
+    </div>
+
+    <footer class="footer">
+      “Calote é vida.” — Pitágoras
+    </footer>
 
   </body>
 

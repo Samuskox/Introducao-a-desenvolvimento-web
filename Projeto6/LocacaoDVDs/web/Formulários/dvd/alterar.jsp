@@ -10,7 +10,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="../../css/estilos.css"/>
+          href="${cp}/css/estilos.css"/>
   </head>
 
   <body>
@@ -62,7 +62,7 @@
               <c:forEach items="${servicos1.todos}" var="ator">
                 <c:choose>
                   <c:when test="${requestScope.dvd.atorPrincipal.id eq ator.id}">
-                    <option value="${atorPrincipal.id}" selected>
+                    <option value="${ator.id}" selected>
                       ${ator.nome}
                     </option>
                   </c:when>

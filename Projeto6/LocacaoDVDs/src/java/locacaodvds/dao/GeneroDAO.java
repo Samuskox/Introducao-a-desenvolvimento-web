@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.SQLIntegrityConstraintViolationException;
 import locacaodvds.entidades.Genero;
 
 /**
@@ -55,7 +56,8 @@ public class GeneroDAO extends DAO<Genero> {
 
     @Override
     public void excluir(Genero obj) throws SQLException {
-        PreparedStatement stmt = getConnection().prepareStatement(
+        
+             PreparedStatement stmt = getConnection().prepareStatement(
                 """
                 DELETE FROM genero
                 WHERE 
@@ -66,6 +68,8 @@ public class GeneroDAO extends DAO<Genero> {
 
         stmt.executeUpdate();
         stmt.close();
+        
+       
     }
 
     @Override

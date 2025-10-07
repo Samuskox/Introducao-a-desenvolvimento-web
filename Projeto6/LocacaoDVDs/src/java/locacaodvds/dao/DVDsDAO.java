@@ -6,6 +6,7 @@ package locacaodvds.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import locacaodvds.entidades.DVDs;
 import java.sql.ResultSet;
@@ -88,8 +89,8 @@ public class DVDsDAO extends DAO<DVDs>{
 
     @Override
     public void excluir(DVDs obj) throws SQLException {
-        
-        PreparedStatement stmt = getConnection().prepareStatement(
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(
                 """
                 DELETE FROM dvd
                 WHERE id = ?;
@@ -98,6 +99,10 @@ public class DVDsDAO extends DAO<DVDs>{
         stmt.setInt(1, obj.getId());
         stmt.executeUpdate();
         stmt.close();
+        } catch (SQLIntegrityConstraintViolationException e) {
+           e.printStackTrace();
+        }
+        
     }
 
     @Override
@@ -224,7 +229,8 @@ public class DVDsDAO extends DAO<DVDs>{
 
         if (resultSet.next()) {
             dvd = new DVDs();
-            Ator ator = new Ator();
+            Ator atorPrincipal = new Ator();
+            Ator atorCoadjuvante = new Ator();
             ClassificacaoEtaria classificacao = new ClassificacaoEtaria();
             Genero genero = new Genero();
             
@@ -234,18 +240,23 @@ public class DVDsDAO extends DAO<DVDs>{
             dvd.setAnoLancamento(resultSet.getInt("anoLancamento"));
             
             
-            ator.setId(resultSet.getInt("idAtorPrincipal"));
-            dvd.setAtorPrincipal(ator);
-            ator.setId(resultSet.getInt("idAtorCoadjuvante"));
-            dvd.setAtorCoadjuvante(ator);
+            atorPrincipal.setId(resultSet.getInt("idAtorPrincipal"));
+            atorPrincipal.setNome( resultSet.getString("nomeAtorPrincipal"));
+            dvd.setAtorPrincipal(atorPrincipal);
+            
+            atorCoadjuvante.setId(resultSet.getInt("idAtorCoadjuvante"));
+            atorCoadjuvante.setNome( resultSet.getString("nomeAtorCoadjuvante"));
+            dvd.setAtorCoadjuvante(atorCoadjuvante);
             
             dvd.setDataLancamento(resultSet.getString("dataLancamento"));
             dvd.setDuracaoMinutos(resultSet.getInt("duracaoMinutos"));
             
             classificacao.setId(resultSet.getInt("idClassificacaoEtaria"));
+            classificacao.setDescricao(resultSet.getString("descricaoClassificacaoEtaria"));
             dvd.setClassificacaoEtaria(classificacao);
             
             genero.setId(resultSet.getInt("idGenero"));
+            genero.setDescricao(resultSet.getString("descricaoGenero"));
             dvd.setGenero(genero);
         }
 

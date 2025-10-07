@@ -10,7 +10,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="../../css/estilos.css"/>
+          href="${cp}/css/estilos.css"/>
   </head>
 
   <body>
@@ -37,7 +37,7 @@
 
         <tr>
           <td>
-            <a class="link" href="${cp}/Formulário/genero/listagem.jsp">Voltar</a>
+            <a class="link" href="${cp}/Formulários/genero/listagem.jsp">Voltar</a>
           </td>
           <td class="alinharDireita">
             <input type="submit" value="Salvar"/>

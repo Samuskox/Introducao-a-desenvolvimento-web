@@ -16,15 +16,13 @@
 
   <body>
 
-    <h1>Cidades Cadastradas</h1>
+    <div class="main-content">
 
-    <p>
-      <a href="${cp}/Formulários/dvd/novo.jsp">
-        Novo DVD
-      </a>
-    </p>
+    <h1>DVDs Cadastrados</h1>
 
-    <table class="tabelaListagem">
+
+    <div class="table-wrapper">
+    <table class="table">
       <thead>
         <tr>
           <th>Id</th>
@@ -72,14 +70,23 @@
         </c:forEach>
       </tbody>
     </table>
+    </div>
 
-    <p>
-      <a href="${cp}/Formulários/dvd/novo.jsp">
+    </div>
+
+    <p style="text-align: center;">
+        <a class="link" href="${cp}/Formulários/dvd/novo.jsp">
         Novo DVD
       </a>
     </p>
 
-    <p><a href="${cp}/páginaInicial.html">Tela Principal</a></p>
+    <div class="sidebar right">
+      <a href="${cp}/páginaInicial.html" class="link">Tela Principal</a>
+    </div>
+
+    <footer class="footer">
+    “Calote é vida.” — Pitágoras
+  </footer>
 
   </body>
 

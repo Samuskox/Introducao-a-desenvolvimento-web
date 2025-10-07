@@ -15,13 +15,15 @@
 
   <body>
 
+    <div class="main-content">
+
     <h1>Nova Classificação Etária</h1>
 
     <form method="post" action="${cp}/processaClassificacao">
 
       <input name="acao" type="hidden" value="inserir"/>
 
-      <table>
+      <table class="table">
         <tr>
           <td class="alinharDireita">Descrição:</td>
           <td>
@@ -35,7 +37,7 @@
 
         <tr>
           <td>
-            <a href="${cp}/Formulários/classificacaoetaria/listagem.jsp">Voltar</a>
+            <a class="link" href="${cp}/Formulários/classificacaoetaria/listagem.jsp">Voltar</a>
           </td>
           <td class="alinharDireita">
             <input type="submit" value="Salvar"/>
@@ -44,6 +46,12 @@
       </table>
 
     </form>
+
+    </div>
+
+    <footer class="footer">
+      “Calote é vida.” — Pitágoras
+    </footer>
 
   </body>
 
