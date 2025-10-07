@@ -71,14 +71,13 @@
       </tbody>
     </table>
     </div>
-
+            <p style="text-align: center;">
+                <a class="link" href="${cp}/Formulários/dvd/novo.jsp">
+                    Novo DVD
+                </a>
+            </p>
     </div>
-
-    <p style="text-align: center;">
-        <a class="link" href="${cp}/Formulários/dvd/novo.jsp">
-        Novo DVD
-      </a>
-    </p>
+    
 
     <div class="sidebar right">
       <a href="${cp}/páginaInicial.html" class="link">Tela Principal</a>
