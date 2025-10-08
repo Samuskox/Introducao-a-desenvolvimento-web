@@ -12,27 +12,14 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/src/java/locacaodvds/dao/ClassificacaoDAO.java</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/src/java/locacaodvds/entidades/Ator.java</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/src/java/locacaodvds/entidades/Genero.java</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/src/java/locacaodvds/entidades/DVDs.java</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/src/java/locacaodvds/services/DVDsService.java</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/src/java/locacaodvds/dao/DVDsDAO.java</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/src/java/locacaodvds/dao/GeneroDAO.java</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/src/java/locacaodvds/servlets/GeneroServlet.java</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/Formulários/genero/erro.jsp</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/index.html</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/css/estilos.css</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/Formulários/ator/excluir.jsp</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/Formulários/ator/alterar.jsp</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/Formulários/ator/listagem.jsp</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/Formulários/ator/novo.jsp</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/Formulários/ator/erro.jsp</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/Formulários/genero/excluir.jsp</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/Formulários/genero/listagem.jsp</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/Formulários/genero/alterar.jsp</file>
-            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/Formulários/genero/novo.jsp</file>
+            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/src/java/locacaodvds/servlets/DVDsServlets.java</file>
+            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/Formulários/dvd/alterar.jsp</file>
             <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/Formulários/dvd/listagem.jsp</file>
+            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/Formulários/dvd/novo.jsp</file>
+            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/src/java/locacaodvds/jdbc/ConnectionFactory.java</file>
+            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/Formulários/ator/erro.jsp</file>
+            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/index.html</file>
+            <file>file:/C:/Users/Samuel/Desktop/Introducao-a-desenvolvimento-web/Projeto6/LocacaoDVDs/web/páginaInicial.html</file>
         </group>
     </open-files>
 </project-private>
