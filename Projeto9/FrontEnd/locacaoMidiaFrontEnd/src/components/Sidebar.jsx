@@ -9,7 +9,12 @@ function Sidebar() {
     { name: 'Clientes', path: '/clientes' },
     { name: 'Mídias', path: '/midias' },
     { name: 'Exemplares', path: '/exemplares' },
-    { name: 'Locações', path: '/locacoes' },
+    { name: 'Locações', path: '/locacao' },
+    { name: 'Ator/Atrizes', path: '/ator'},
+    { name: 'Classificação Etária', path: '/classificacaoEtaria'},
+    { name: 'Classificação Interna', path: '/classificacaoInterna'},
+    { name: 'Gênero', path: '/genero'},  
+    { name: 'Tipo', path: '/tipo'}
   ];
 
   return (
@@ -34,8 +39,7 @@ const styles = {
     backgroundColor: '#333',
     color: 'white',
     padding: '15px 0',
-    height: '100vh',
-    position: 'fixed', 
+    height: '100vh', 
   },
   header: {
     textAlign: 'center',

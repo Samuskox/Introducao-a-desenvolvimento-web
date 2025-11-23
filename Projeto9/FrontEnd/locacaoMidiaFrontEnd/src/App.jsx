@@ -17,6 +17,16 @@ import ExemplaresList from './components/ExemplaresList.jsx';
 import ExemplaresForm from './components/ExemplaresForm.jsx';
 import LocacaoForm from './components/LocacaoForm.jsx';
 import LocacaoList from './components/LocacaoList.jsx';
+import AtorList from './components/AtorList.jsx';
+import AtorForm from './components/AtorForm.jsx';
+import ClassificacaoEtariaList from './components/ClassificacaoEtariaList.jsx';
+import ClassificacaoEtariaForm from './components/ClassificacaoEtariaForm.jsx';
+import ClassificacaoInternaList from './components/ClassificacaoInternaList.jsx';
+import ClassificacaoInternaForm from './components/ClassificacaoInternaForm.jsx';
+import GeneroList from './components/GeneroList.jsx';
+import GeneroForm from './components/GeneroForm.jsx';
+import TipoList from './components/TipoList.jsx';
+import TipoForm from './components/TipoForm.jsx';
 
 function App() {
 
@@ -45,6 +55,21 @@ function App() {
 
           <Route path="/locacao" element={<LocacaoList/>}/>
           <Route path="/locacao/novo" element={<LocacaoForm/>}/>
+
+          <Route path="/ator" element={<AtorList/>}/>
+          <Route path="/ator/novo" element={<AtorForm/>}/>
+
+          <Route path="/classificacaoEtaria" element={<ClassificacaoEtariaList/>}/>
+          <Route path="/classificacaoEtaria/novo" element={<ClassificacaoEtariaForm/>}/>
+
+          <Route path="/classificacaoInterna" element={<ClassificacaoInternaList/>}/>
+          <Route path="/classificacaoInterna/novo" element={<ClassificacaoInternaForm/>}/>
+
+          <Route path="/genero" element={<GeneroList/>}/>
+          <Route path="/genero/novo" element={<GeneroForm/>}/>
+
+          <Route path="/tipo" element={<TipoList/>}/>
+          <Route path="/tipo/novo" element={<TipoForm/>}/>
         </Routes>
       </Layout>
     </Router>

@@ -49,6 +49,7 @@ public class LocacaoService {
         existente.setData_fim(locacao.getData_fim());
         existente.setData_inicio(locacao.getData_inicio());
         existente.setCliente(clienteGerenciado);
+        existente.setCancelada(locacao.isCancelada());
 
 
        return locacaoRepository.save(existente);
