@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sistema para Venda de Produtos (SPA)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/public/assets/css/estilos.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    
+    <div>
+      <h1>Sistema para Venda de Produtos</h1>
+    </div>
+    
+    <div class="div-menu-lateral">
+      <ul class="ul-menu">
+        <li><a id="itemMenuHome" href="#">Home</a></li>
+        <li><a id="itemMenuVendas" href="#">Vendas</a></li>
+        <li><a id="itemMenuClientes" href="#">Clientes</a></li>
+        <li><a id="itemMenuFornecedores" href="#">Fornecedores</a></li>
+        <li><a id="itemMenuProdutos" href="#">Produtos</a></li>
+        <li><a id="itemMenuCidades" href="#">Cidades</a></li>
+        <li><a id="itemMenuEstados" href="#">Estados</a></li>
+        <li><a id="itemMenuUnidadesMedida" href="#">Unidades de Medida</a></li>
+      </ul>
+    </div>
+    
+    <div class="div-principal">
+      <div id="divHome" class="container-cadastro escondido">
+        <img id="logoHome" src="/public/assets/imagens/logo.png"/>
+        <h3>Sistema para Venda de Produtos<h3>
+        <div id="div-animada" class="div-animada">Use o menu à esquerda!</div>
+      </div>
+      <div id="divVendas" class="container-cadastro escondido"></div>
+      <div id="divClientes" class="container-cadastro escondido"></div>
+      <div id="divFornecedores" class="container-cadastro escondido"></div>
+      <div id="divProdutos" class="container-cadastro escondido"></div>
+      <div id="divCidades" class="container-cadastro escondido"></div>
+      <div id="divEstados" class="container-cadastro escondido"></div>
+      <div id="divUnidadesMedida" class="container-cadastro escondido"></div>
+    </div>
+    
+    <div id="modalAguarde" class="escondido">
+      <div class="overlay">
+        <div class="conteudo-modal">
+          <div class="corpo-modal">Aguarde...</div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="modalMensagem" class="escondido">
+      <div class="overlay">
+        <div class="conteudo-modal">
+          <button class="btn-fechar">&times;</button>
+          <h3 class="titulo-modal"></h3>
+          <div class="corpo-modal"></div>
+          <div class="rodape-modal">
+            <button class="btn btn-primario btnOk">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="modalConfirmacao" class="escondido">
+      <div class="overlay">
+        <div class="conteudo-modal">
+          <button class="btn-fechar">&times;</button>
+          <h3 class="titulo-modal"></h3>
+          <div class="corpo-modal"></div>
+          <div class="rodape-modal">
+            <button class="btn btn-terciario btnOk">OK</button>
+            <button class="btn btn-secundario btnCancelar">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="/src/js/app.js" type="module"></script>
+    
+  </body>
+</html>
