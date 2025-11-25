@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../App.css';
 
 function Sidebar() {
   const links = [
@@ -10,20 +11,21 @@ function Sidebar() {
     { name: 'Mídias', path: '/midias' },
     { name: 'Exemplares', path: '/exemplares' },
     { name: 'Locações', path: '/locacao' },
-    { name: 'Ator/Atrizes', path: '/ator'},
-    { name: 'Classificação Etária', path: '/classificacaoEtaria'},
-    { name: 'Classificação Interna', path: '/classificacaoInterna'},
-    { name: 'Gênero', path: '/genero'},  
-    { name: 'Tipo', path: '/tipo'}
+    { name: 'Ator/Atrizes', path: '/ator' },
+    { name: 'Classificação Etária', path: '/classificacaoEtaria' },
+    { name: 'Classificação Interna', path: '/classificacaoInterna' },
+    { name: 'Gênero', path: '/genero' },
+    { name: 'Tipo', path: '/tipo' }
   ];
 
   return (
-    <nav style={styles.sidebar}>
-      <h3 style={styles.header}>Locadora Menu</h3>
-      <ul style={styles.ul}>
+    <nav className="sidebar">
+      <h3 className="sidebar-title">Menu</h3>
+
+      <ul className="sidebar-list">
         {links.map((link) => (
-          <li key={link.name} style={styles.li}>
-            <Link to={link.path} style={styles.link}>
+          <li key={link.name} className="sidebar-item">
+            <Link to={link.path} className="sidebar-link">
               {link.name}
             </Link>
           </li>
@@ -32,32 +34,5 @@ function Sidebar() {
     </nav>
   );
 }
-
-const styles = {
-  sidebar: {
-    width: '200px',
-    backgroundColor: '#333',
-    color: 'white',
-    padding: '15px 0',
-    height: '100vh', 
-  },
-  header: {
-    textAlign: 'center',
-    marginBottom: '20px',
-  },
-  ul: {
-    listStyleType: 'none',
-    padding: 0,
-  },
-  li: {
-    padding: '10px 15px',
-    borderBottom: '1px solid #444',
-  },
-  link: {
-    color: 'white',
-    textDecoration: 'none',
-    display: 'block',
-  },
-};
 
 export default Sidebar;

@@ -138,6 +138,7 @@ function CidadesList() {
                             <th>ID</th>
                             <th>Nome da Cidade</th>
                             <th>Estado</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
 

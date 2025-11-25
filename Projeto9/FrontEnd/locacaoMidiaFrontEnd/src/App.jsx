@@ -27,6 +27,7 @@ import GeneroList from './components/GeneroList.jsx';
 import GeneroForm from './components/GeneroForm.jsx';
 import TipoList from './components/TipoList.jsx';
 import TipoForm from './components/TipoForm.jsx';
+import TelaPrincipal from './components/TelaPrincipal.jsx';
 
 function App() {
 
@@ -35,7 +36,7 @@ function App() {
       <Layout>
         <Routes>
           {/* Rota padrão */}
-          <Route path="/" element={<h1>Bem-vindo à Locadora!</h1>} />
+          <Route path="/" element={<TelaPrincipal/>} />
           {/* Adicione outras rotas para clientes, locacoes, etc., aqui */}
 
           <Route path="/estados" element={<EstadoList/>} />

@@ -1,42 +1,390 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body{
+    margin: auto;
+    font-family: 'Poppins', sans-serif;
+    overflow: auto;
+    background: linear-gradient(315deg,
+  rgb(155, 40, 216) 3%,
+  rgba(140, 60, 206, 1) 38%,
+  rgba(120, 48, 238, 1) 68%,
+  rgba(200, 25, 255, 1) 98%
+);
+
+    animation: gradient 10s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* SIDEBAR */
+.sidebar {
+    width: 230px;
+    height: 100vh;
+
+    /* mesmo estilo do fundo, porém mais escuro e com transparência */
+    background: linear-gradient(
+        315deg,
+        rgba(121, 20, 180, 0.9) 0%,
+        rgba(100, 30, 180, 0.9) 45%,
+        rgba(80, 25, 160, 0.9) 100%
+    );
+
+    backdrop-filter: blur(14px);
+    border-right: 2px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 25px rgba(200, 25, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    animation: sidebarGradient 4s ease infinite;
+    background-size: 200% 200%;
 }
 
-.card {
-  padding: 2em;
+@keyframes sidebarGradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
 }
 
-.read-the-docs {
-  color: #888;
+
+.sidebar-title {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(200, 0, 255, 0.6);
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-item {
+    margin: 6px 0;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 12px 20px;
+    margin: 0 10px;
+    color: #eee;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: 0.25s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-link:hover {
+    background: linear-gradient(120deg, #c533ff, #9f27ff);
+    transform: translateX(5px);
+    color: white;
+    box-shadow: 0 0 15px rgba(200, 25, 255, 0.4);
+}
+
+/* ----- FORM WRAPPER ----- */
+.form-container {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(180, 0, 255, 0.25);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* ----- LABEL ----- */
+label {
+    padding: 10px;
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #f6eaff;
+    letter-spacing: 0.5px;
+}
+
+/* ----- INPUTS & SELECT & TEXTAREA ----- */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    outline: none;
+    transition: 0.25s;
+    font-family: 'Poppins', sans-serif;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #c533ff;
+    box-shadow: 0 0 10px rgba(200, 25, 255, 0.5);
+}
+
+/* Estiliza o fundo quando o select é aberto */
+select {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+/* Estiliza a caixinha suspensa */
+select option {
+    background-color: rgba(40, 0, 60, 0.9);
+    color: #fff;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+/* Hover dentro do dropdown */
+select option:hover {
+    background-color: rgba(200, 25, 255, 0.4);
+}
+
+
+/* ----- BUTTONS ----- */
+button {
+    margin-top: 10px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    letter-spacing: 1px;
+    background: linear-gradient(120deg, #c533ff, #9f27ff);
+    box-shadow: 0 4px 15px rgba(200, 25, 255, 0.4);
+    transition: 0.25s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(200, 25, 255, 0.55);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* ----- TABLE ----- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 20px rgba(200, 25, 255, 0.25);
+}
+
+thead {
+    background: rgba(150, 0, 200, 0.45);
+}
+
+thead th {
+    padding: 14px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+tbody tr {
+    transition: 0.25s;
+}
+
+tbody tr:hover {
+    background: rgba(200, 25, 255, 0.15);
+}
+
+tbody td {
+    padding: 12px 14px;
+    color: #f2e2ff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Mesma vibe dos botões pequenos de ação */
+.table-action-btn {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    background: linear-gradient(120deg, #c533ff, #9f27ff);
+    color: white;
+    transition: 0.25s;
+}
+
+.table-action-btn:hover {
+    box-shadow: 0 0 12px rgba(200, 25, 255, 0.5);
+}
+
+tbody td:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.13);
+}
+
+tbody td:nth-child(even) {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+thead th:nth-child(odd) {
+    background: rgba(150, 0, 200, 0.95);
+}
+
+thead th:nth-child(even) {
+    background: rgba(150, 0, 200, 0.35);
+}
+
+.noise-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* container das estrelas */
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* cada estrela */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 6px white);
+    animation-timing-function: linear;
+}
+
+.home-container {
+    text-align: center;
+    padding: 20px;
+    animation: fade 0.6s ease;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.welcome-title {
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px rgba(200, 25, 255, 0.6);
+}
+
+/* ------ Carousel ------ */
+.carousel-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    overflow: hidden;
+}
+
+.carousel-title {
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    word-wrap: break-word;
+}
+
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    font-size: 2rem;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    backdrop-filter: blur(6px);
+    transition: 0.25s;
+}
+
+.nav-btn:hover {
+    background: linear-gradient(120deg, #c533ff, #9f27ff);
+    box-shadow: 0 0 15px rgba(200, 25, 255, 0.6);
+}
+
+/* área visível */
+.carousel-window {
+    width: 320px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+/* trilha que se move */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+/* cada item */
+.item {
+    min-width: 320px;
+}
+
+.item img {
+    width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(140, 60, 206, 0.5);
+}
+
+.item h3 {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px rgba(200, 25, 255, 0.6);
 }

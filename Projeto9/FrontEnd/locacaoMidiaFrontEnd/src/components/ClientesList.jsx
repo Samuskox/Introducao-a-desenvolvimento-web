@@ -155,7 +155,7 @@ function ClientesList() {
                         {clientes.map(cliente => (
                             
                             <tr key={cliente.id}>
-                                <tr>{cliente.id}</tr>
+                                <td>{cliente.id}</td>
                                 {editingId === cliente.id ? (
                                     <td colSpan="12">
                                         <form onSubmit={handleEditSubmit} style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>

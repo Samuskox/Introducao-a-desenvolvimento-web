@@ -137,7 +137,7 @@ return (
             <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '15px' }}>
                 
                 <thead>
-                    <tr style={{ backgroundColor: '#5f5050ff' }}>
+                    <tr>
                         <th>ID</th>
                         <th>Nome</th>
                         <th>Sigla</th>

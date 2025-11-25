@@ -140,6 +140,7 @@ function MidiaList() {
         setEditData({
             titulo: midia.titulo,
             ano_lancamento: midia.ano_lancamento,
+            codigo_barras: midia.codigo_barras,
             ator_principalId: midia.ator_principal?.id,
             ator_coadjuvanteId: midia.ator_coadjuvante?.id,
             generoId: midia.genero?.id,
@@ -165,6 +166,7 @@ function MidiaList() {
             id: editingId,
             titulo: editData.titulo,
             ano_lancamento: editData.ano_lancamento,
+            codigo_barras: editData.codigo_barras,
             ator_principal: { id: editData.ator_principalId },
             ator_coadjuvante: { id: editData.ator_coadjuvanteId },
             genero: { id: editData.generoId },
@@ -179,7 +181,7 @@ function MidiaList() {
             body: JSON.stringify(midia)
         })
         .then(response => {
-            if (!response.ok) throw new Error('Falha na atualização. Status: ' + resp.status);
+            if (!response.ok) throw new Error('Falha na atualização. Status: ' + response.status);
             return response.json();
         })
         .then(data => {
@@ -211,11 +213,14 @@ function MidiaList() {
                             <th>ID</th>
                             <th>Título</th>
                             <th>Ano de Lançamento</th>
+                            <th>Código de Barras</th>
                             <th>Ator</th>
+                            <th>Ator Coadjuvante</th>
                             <th>Gênero</th>
                             <th>Classificação Etária</th>
                             <th>Classificação Interna</th>
                             <th>Tipo</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -228,6 +233,7 @@ function MidiaList() {
                                             <form onSubmit={handleEditSubmit}>
                                                 <input name="titulo" value={editData.titulo} onChange={handleEditChange} required placeholder="titulo" />
                                                 <input name="ano_lancamento" value={editData.ano_lancamento} onChange={handleEditChange} required placeholder="ano_lancamento" />
+                                                <input name="codigo_barras" value={editData.codigo_barras} onChange={handleEditChange} required placeholder="codigo de barras" />
                                                 <select name="ator_principalId" value={editData.ator_principalId} onChange={handleEditChange} required>
                                                     <option value="">Selecione o Ator Principal</option>
                                                     {ator.map(ator => (
@@ -273,6 +279,7 @@ function MidiaList() {
                                             <td>{midia.id}</td>
                                             <td>{midia.titulo}</td>
                                             <td>{midia.ano_lancamento}</td>
+                                            <td>{midia.codigo_barras}</td>
                                             <td>{midia.ator_principal.nome}</td>
                                             <td>{midia.ator_coadjuvante.nome}</td>
                                             <td>{midia.genero.descricao}</td>
